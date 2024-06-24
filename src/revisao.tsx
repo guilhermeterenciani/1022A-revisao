@@ -1,32 +1,31 @@
 function Revisao(){
-    // Faça uma função mostraNumeros que receba um objeto de 
+    // Faça uma função mostraNumeros pares que receba um objeto de 
     // Numeros que tenha as propriedades min e max
-    // E devolva uma string do número max até o min em sequencia
+    // E devolva uma string do número min até o max em sequencia dos números pares
 
     // Ex:
     /** obj.min = 10
      *  obj.max = 15
      *  mostraNumeros(obj)
-     *  retorno "15,14,13,12,11,10"
+     *  retorno "10,12,14"
+     * 
     */
     type F = {
         min:number,
         max:number
     }
     function mostraNumeros(obj:F){
-        let texto:string = ""
-        let i:number = obj.max
-        while(i>=obj.min){
-            if(i==obj.min){
-                texto = texto.concat(i.toString())
+        let texto = ''
+        let i = obj.min
+        while(i<=obj.max){
+            if(i%2==0){
+                texto = texto.concat(i.toString(),",")
             }
-            else{
-                texto = texto.concat(i.toString()+', ')
-            }
-            i = i-1
+            i = i+1
         }
         return texto
     }
+
     let obj = {min:10,max:15}
     return(
         <h1>{mostraNumeros(obj)}</h1>
